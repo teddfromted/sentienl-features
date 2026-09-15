@@ -6,10 +6,69 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    background: #0a0e27;
+    position: relative;
+}
+
+/* Mesh Background */
+.mesh-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.mesh-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.mesh-line {
+    stroke: rgba(255, 255, 255, 0.08);
+    animation: mesh-pulse 3s ease-in-out infinite;
+}
+
+.mesh-line:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.mesh-node {
+    fill: rgba(255, 255, 255, 0.1);
+    animation: node-glow 4s ease-in-out infinite;
+}
+
+.mesh-node:nth-child(odd) {
+    animation-delay: 1s;
+}
+
+@keyframes mesh-pulse {
+    0%, 100% {
+        stroke: rgba(255, 255, 255, 0.08);
+        stroke-width: 1;
+    }
+    50% {
+        stroke: rgba(255, 255, 255, 0.15);
+        stroke-width: 1.5;
+    }
+}
+
+@keyframes node-glow {
+    0%, 100% {
+        fill: rgba(255, 255, 255, 0.1);
+        r: 3;
+    }
+    50% {
+        fill: rgba(255, 255, 255, 0.25);
+        r: 5;
+    }
 }
 
 /* Hero Section */
@@ -22,24 +81,17 @@ body {
     text-align: center;
     padding: 40px 20px;
     position: relative;
-    overflow: hidden;
+    z-index: 2;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-    pointer-events: none;
+.hero-content {
+    position: relative;
+    z-index: 3;
 }
 
 .logo-container {
     margin-bottom: 40px;
     position: relative;
-    z-index: 1;
 }
 
 .glowing-circle {
@@ -51,6 +103,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    margin: 0 auto;
     box-shadow: 
         0 0 20px rgba(255, 255, 255, 0.3),
         0 0 40px rgba(255, 255, 255, 0.2),
@@ -85,7 +138,6 @@ body {
     text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
     letter-spacing: 3px;
     position: relative;
-    z-index: 1;
 }
 
 .tagline {
@@ -93,8 +145,6 @@ body {
     color: #b0b0b0;
     margin-bottom: 40px;
     letter-spacing: 1px;
-    position: relative;
-    z-index: 1;
 }
 
 .tagline .highlight {
@@ -113,8 +163,6 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 40px;
-    position: relative;
-    z-index: 1;
 }
 
 .btn {
@@ -154,10 +202,12 @@ body {
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
 }
 
-/* Features Section */
+/* Features Section - NOW AT TOP */
 .features {
     padding: 80px 20px;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    background: rgba(10, 14, 39, 0.8);
+    position: relative;
+    z-index: 2;
 }
 
 .features-grid {
@@ -233,7 +283,9 @@ body {
 /* Commands Section */
 .commands {
     padding: 80px 20px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+    background: rgba(10, 14, 39, 0.7);
+    position: relative;
+    z-index: 2;
 }
 
 .commands-title {
@@ -243,8 +295,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
-    display: inline-block;
-    width: 100%;
+    display: block;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
@@ -325,7 +376,9 @@ body {
     padding: 40px 20px;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
 }
 
 .footer p {
@@ -391,6 +444,10 @@ body {
     }
 
     .commands-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
         grid-template-columns: 1fr;
     }
 }
