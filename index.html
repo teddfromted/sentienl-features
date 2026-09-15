@@ -7,131 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Animated Mesh Background -->
-    <div class="mesh-background">
-        <svg class="mesh-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-            <defs>
-                <filter id="noise">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="noise" seed="2" />
-                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" />
-                </filter>
-            </defs>
-            <g filter="url(#noise)">
-                <rect width="1200" height="800" fill="#0a0e27"/>
-                <!-- Animated mesh lines -->
-                <g class="mesh-grid" stroke="rgba(255,255,255,0.1)" stroke-width="1">
-                    <!-- Horizontal lines -->
-                    <line x1="0" y1="100" x2="1200" y2="100" class="mesh-line"/>
-                    <line x1="0" y1="200" x2="1200" y2="200" class="mesh-line"/>
-                    <line x1="0" y1="300" x2="1200" y2="300" class="mesh-line"/>
-                    <line x1="0" y1="400" x2="1200" y2="400" class="mesh-line"/>
-                    <line x1="0" y1="500" x2="1200" y2="500" class="mesh-line"/>
-                    <line x1="0" y1="600" x2="1200" y2="600" class="mesh-line"/>
-                    <line x1="0" y1="700" x2="1200" y2="700" class="mesh-line"/>
-                    
-                    <!-- Vertical lines -->
-                    <line x1="100" y1="0" x2="100" y2="800" class="mesh-line"/>
-                    <line x1="200" y1="0" x2="200" y2="800" class="mesh-line"/>
-                    <line x1="300" y1="0" x2="300" y2="800" class="mesh-line"/>
-                    <line x1="400" y1="0" x2="400" y2="800" class="mesh-line"/>
-                    <line x1="500" y1="0" x2="500" y2="800" class="mesh-line"/>
-                    <line x1="600" y1="0" x2="600" y2="800" class="mesh-line"/>
-                    <line x1="700" y1="0" x2="700" y2="800" class="mesh-line"/>
-                    <line x1="800" y1="0" x2="800" y2="800" class="mesh-line"/>
-                    <line x1="900" y1="0" x2="900" y2="800" class="mesh-line"/>
-                    <line x1="1000" y1="0" x2="1000" y2="800" class="mesh-line"/>
-                    <line x1="1100" y1="0" x2="1100" y2="800" class="mesh-line"/>
-                </g>
-                
-                <!-- Glowing intersection points -->
-                <g class="mesh-nodes" fill="rgba(255,255,255,0.15)">
-                    <circle cx="100" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="200" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="300" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="400" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="500" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="600" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="700" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="800" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="900" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="1000" cy="100" r="3" class="mesh-node"/>
-                    <circle cx="1100" cy="100" r="3" class="mesh-node"/>
-                </g>
-            </g>
-        </svg>
-    </div>
+    <!-- Falling Snow Canvas -->
+    <canvas id="snow-canvas"></canvas>
 
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
             <div class="logo-container">
-                <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <img src="https://cdn.discordapp.com/attachments/1548114851212169216/1548114851212169217/sentienl-logo.png" alt="Sentienl Logo" class="logo-img" onerror="this.style.display='none'">
+                <!-- Fallback SVG if image fails to load -->
+                <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="display:none;">
                     <defs>
-                        <filter id="logo-shadow" x="-100%" y="-100%" width="300%" height="300%">
-                            <feDropShadow dx="0" dy="0" stdDeviation="12" flood-opacity="1" flood-color="#000000"/>
-                        </filter>
                         <filter id="logo-glow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                             <feMerge>
                                 <feMergeNode in="coloredBlur"/>
                                 <feMergeNode in="SourceGraphic"/>
                             </feMerge>
                         </filter>
                     </defs>
-                    
-                    <!-- Top arrow bracket (left) -->
-                    <polygon points="80,40 100,60 85,75" fill="white" filter="url(#logo-glow)"/>
-                    
-                    <!-- Top arrow bracket (right) -->
-                    <polygon points="220,40 200,60 215,75" fill="white" filter="url(#logo-glow)"/>
-                    
-                    <!-- Top center arrow point -->
-                    <polygon points="150,20 165,50 135,50" fill="white" filter="url(#logo-glow)"/>
-                    
-                    <!-- Upper left face -->
-                    <g fill="none" stroke="white" stroke-width="4" filter="url(#logo-glow)">
-                        <polygon points="70,85 90,105 70,125 50,105" stroke="white" stroke-width="3.5"/>
-                    </g>
-                    
-                    <!-- Upper right face -->
-                    <g fill="none" stroke="white" stroke-width="4" filter="url(#logo-glow)">
-                        <polygon points="230,85 210,105 230,125 250,105" stroke="white" stroke-width="3.5"/>
-                    </g>
-                    
-                    <!-- Center vertical line/core -->
-                    <line x1="150" y1="45" x2="150" y2="255" stroke="white" stroke-width="5" filter="url(#logo-glow)"/>
-                    
-                    <!-- Left side diagonal line -->
-                    <line x1="70" y1="125" x2="85" y2="175" stroke="white" stroke-width="4" filter="url(#logo-glow)"/>
-                    
-                    <!-- Right side diagonal line -->
-                    <line x1="230" y1="125" x2="215" y2="175" stroke="white" stroke-width="4" filter="url(#logo-glow)"/>
-                    
-                    <!-- Lower left bracket -->
-                    <polygon points="80,225 100,240 85,255" fill="white" filter="url(#logo-glow)"/>
-                    
-                    <!-- Lower right bracket -->
-                    <polygon points="220,225 200,240 215,255" fill="white" filter="url(#logo-glow)"/>
-                    
-                    <!-- Bottom arrow point -->
-                    <polygon points="150,280 135,250 165,250" fill="white" filter="url(#logo-glow)"/>
-                    
-                    <!-- Connection line from left to bottom -->
-                    <line x1="85" y1="175" x2="120" y2="245" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
-                    
-                    <!-- Connection line from right to bottom -->
-                    <line x1="215" y1="175" x2="180" y2="245" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
-                    
-                    <!-- Shading: left face dark overlay -->
-                    <g opacity="0.3" filter="url(#logo-shadow)">
-                        <polygon points="80,110 100,130 90,140 70,120" fill="black"/>
-                    </g>
-                    
-                    <!-- Shading: center dark areas -->
-                    <g opacity="0.25">
-                        <polygon points="120,140 150,160 130,180" fill="black"/>
-                        <polygon points="180,140 150,160 170,180" fill="black"/>
-                    </g>
+                    <!-- Your SVG logo here as fallback -->
                 </svg>
             </div>
             
@@ -145,7 +40,7 @@
         </div>
     </header>
 
-    <!-- Features Section - NOW AT TOP -->
+    <!-- Features Section -->
     <section class="features">
         <div class="features-grid">
             <div class="feature-card">
