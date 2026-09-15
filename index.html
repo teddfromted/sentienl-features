@@ -65,9 +65,48 @@
     <header class="hero">
         <div class="hero-content">
             <div class="logo-container">
-                <div class="glowing-circle">
-                    <span class="logo-text">SENTIENL</span>
-                </div>
+                <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="logo-glow">
+                            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Top Arrow -->
+                    <polygon points="100,20 118,55 82,55" fill="white" stroke="white" stroke-width="2" filter="url(#logo-glow)"/>
+                    
+                    <!-- Top Right Edge -->
+                    <line x1="118" y1="55" x2="145" y2="85" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    
+                    <!-- Top Left Edge -->
+                    <line x1="82" y1="55" x2="55" y2="85" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    
+                    <!-- Right Face -->
+                    <polygon points="145,85 158,110 145,135 132,110" fill="none" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
+                    
+                    <!-- Left Face -->
+                    <polygon points="55,85 42,110 55,135 68,110" fill="none" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
+                    
+                    <!-- Center Vertical Line -->
+                    <line x1="100" y1="55" x2="100" y2="155" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    
+                    <!-- Bottom Right Edge -->
+                    <line x1="145" y1="135" x2="132" y2="170" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    
+                    <!-- Bottom Left Edge -->
+                    <line x1="55" y1="135" x2="68" y2="170" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    
+                    <!-- Bottom Arrow -->
+                    <polygon points="100,180 118,145 82,145" fill="white" stroke="white" stroke-width="2" filter="url(#logo-glow)"/>
+                    
+                    <!-- Connection Lines to Bottom -->
+                    <line x1="132" y1="170" x2="100" y2="155" stroke="white" stroke-width="2.5" filter="url(#logo-glow)"/>
+                    <line x1="68" y1="170" x2="100" y2="155" stroke="white" stroke-width="2.5" filter="url(#logo-glow)"/>
+                </svg>
             </div>
             
             <h1 class="title">SENTIENL</h1>
@@ -84,24 +123,24 @@
     <section class="features">
         <div class="features-grid">
             <div class="feature-card">
-                <h3>Destroy Servers</h3>
-                <p>Powerful raid capabilities to completely disrupt any server. Full control at your fingertips.</p>
-                <span class="tag">raid ready</span>
+                <h3>24/7 Uptime</h3>
+                <p>Always online, always ready. Free forever – no hidden costs.</p>
+                <span class="tag">free 100%</span>
             </div>
             <div class="feature-card">
-                <h3>Without Permissions</h3>
-                <p>Bypass permission restrictions and execute commands freely. No limits, no restrictions.</p>
+                <h3>No Permissions Needed</h3>
+                <p>Bypass permission restrictions and execute commands freely. Full access.</p>
                 <span class="tag">unrestricted</span>
             </div>
             <div class="feature-card">
-                <h3>12+ Commands</h3>
+                <h3>10+ Commands</h3>
                 <p>All commands fully functional. Comprehensive raid toolkit for maximum efficiency.</p>
                 <span class="tag">working fully</span>
             </div>
             <div class="feature-card">
-                <h3>Instant Execution</h3>
-                <p>Lightning-fast command execution. Overwhelming server disruption in seconds.</p>
-                <span class="tag">lightning fast</span>
+                <h3>Sentinel + Giveaways</h3>
+                <p>Massive giveaways and bot events. Boost your server with exclusive rewards.</p>
+                <span class="tag">giveaways</span>
             </div>
         </div>
     </section>
