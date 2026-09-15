@@ -65,10 +65,13 @@
     <header class="hero">
         <div class="hero-content">
             <div class="logo-container">
-                <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                     <defs>
+                        <filter id="logo-shadow" x="-100%" y="-100%" width="300%" height="300%">
+                            <feDropShadow dx="0" dy="0" stdDeviation="12" flood-opacity="1" flood-color="#000000"/>
+                        </filter>
                         <filter id="logo-glow">
-                            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
                             <feMerge>
                                 <feMergeNode in="coloredBlur"/>
                                 <feMergeNode in="SourceGraphic"/>
@@ -76,36 +79,59 @@
                         </filter>
                     </defs>
                     
-                    <!-- Top Arrow -->
-                    <polygon points="100,20 118,55 82,55" fill="white" stroke="white" stroke-width="2" filter="url(#logo-glow)"/>
+                    <!-- Top arrow bracket (left) -->
+                    <polygon points="80,40 100,60 85,75" fill="white" filter="url(#logo-glow)"/>
                     
-                    <!-- Top Right Edge -->
-                    <line x1="118" y1="55" x2="145" y2="85" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    <!-- Top arrow bracket (right) -->
+                    <polygon points="220,40 200,60 215,75" fill="white" filter="url(#logo-glow)"/>
                     
-                    <!-- Top Left Edge -->
-                    <line x1="82" y1="55" x2="55" y2="85" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    <!-- Top center arrow point -->
+                    <polygon points="150,20 165,50 135,50" fill="white" filter="url(#logo-glow)"/>
                     
-                    <!-- Right Face -->
-                    <polygon points="145,85 158,110 145,135 132,110" fill="none" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
+                    <!-- Upper left face -->
+                    <g fill="none" stroke="white" stroke-width="4" filter="url(#logo-glow)">
+                        <polygon points="70,85 90,105 70,125 50,105" stroke="white" stroke-width="3.5"/>
+                    </g>
                     
-                    <!-- Left Face -->
-                    <polygon points="55,85 42,110 55,135 68,110" fill="none" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
+                    <!-- Upper right face -->
+                    <g fill="none" stroke="white" stroke-width="4" filter="url(#logo-glow)">
+                        <polygon points="230,85 210,105 230,125 250,105" stroke="white" stroke-width="3.5"/>
+                    </g>
                     
-                    <!-- Center Vertical Line -->
-                    <line x1="100" y1="55" x2="100" y2="155" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    <!-- Center vertical line/core -->
+                    <line x1="150" y1="45" x2="150" y2="255" stroke="white" stroke-width="5" filter="url(#logo-glow)"/>
                     
-                    <!-- Bottom Right Edge -->
-                    <line x1="145" y1="135" x2="132" y2="170" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    <!-- Left side diagonal line -->
+                    <line x1="70" y1="125" x2="85" y2="175" stroke="white" stroke-width="4" filter="url(#logo-glow)"/>
                     
-                    <!-- Bottom Left Edge -->
-                    <line x1="55" y1="135" x2="68" y2="170" stroke="white" stroke-width="3.5" filter="url(#logo-glow)"/>
+                    <!-- Right side diagonal line -->
+                    <line x1="230" y1="125" x2="215" y2="175" stroke="white" stroke-width="4" filter="url(#logo-glow)"/>
                     
-                    <!-- Bottom Arrow -->
-                    <polygon points="100,180 118,145 82,145" fill="white" stroke="white" stroke-width="2" filter="url(#logo-glow)"/>
+                    <!-- Lower left bracket -->
+                    <polygon points="80,225 100,240 85,255" fill="white" filter="url(#logo-glow)"/>
                     
-                    <!-- Connection Lines to Bottom -->
-                    <line x1="132" y1="170" x2="100" y2="155" stroke="white" stroke-width="2.5" filter="url(#logo-glow)"/>
-                    <line x1="68" y1="170" x2="100" y2="155" stroke="white" stroke-width="2.5" filter="url(#logo-glow)"/>
+                    <!-- Lower right bracket -->
+                    <polygon points="220,225 200,240 215,255" fill="white" filter="url(#logo-glow)"/>
+                    
+                    <!-- Bottom arrow point -->
+                    <polygon points="150,280 135,250 165,250" fill="white" filter="url(#logo-glow)"/>
+                    
+                    <!-- Connection line from left to bottom -->
+                    <line x1="85" y1="175" x2="120" y2="245" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
+                    
+                    <!-- Connection line from right to bottom -->
+                    <line x1="215" y1="175" x2="180" y2="245" stroke="white" stroke-width="3" filter="url(#logo-glow)"/>
+                    
+                    <!-- Shading: left face dark overlay -->
+                    <g opacity="0.3" filter="url(#logo-shadow)">
+                        <polygon points="80,110 100,130 90,140 70,120" fill="black"/>
+                    </g>
+                    
+                    <!-- Shading: center dark areas -->
+                    <g opacity="0.25">
+                        <polygon points="120,140 150,160 130,180" fill="black"/>
+                        <polygon points="180,140 150,160 170,180" fill="black"/>
+                    </g>
                 </svg>
             </div>
             
